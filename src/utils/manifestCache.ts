@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 import * as path from 'node:path';
-import { homedir } from 'node:os';
 import * as fs from 'node:fs';
 import { ComponentSet, RegistryAccess } from '@salesforce/source-deploy-retrieve';
 import { Global } from '@salesforce/core';
@@ -71,4 +70,4 @@ export const maybeDestroyManifest = async (jobId: string): Promise<void> => {
 };
 
 const getManifestFilePath = (jobId: string): string =>
-  path.join(homedir(), Global.SF_STATE_FOLDER, MANIFEST_CACHE_DIR, `${jobId}.xml`);
+  path.join(Global.SF_DIR, MANIFEST_CACHE_DIR, `${jobId}.xml`);
